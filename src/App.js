@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import HomePage from './components/HomePage.jsx';
+import AdminLogIn from './components/AdminLogIn';
+import { Route, Routes } from 'react-router-dom';
+import ClientSignup from './components/ClientSignUp';
+import ClientLogin from './components/ClientLogin';
+import CreateTheatre from './components/CreateTheatre';
+import ViewTheatre from './components/ViewTheatre';
+import { useEffect, useState } from 'react';
 
 function App() {
+  const [selectedTheatre,setSelectedTheatre]=useState("")
+ 
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <Routes>
+        <Route path="/" element={<HomePage/>}/>
+        <Route path="/adminLogin" element={<AdminLogIn/>}/>
+        <Route path="/clientSignup" element={<ClientSignup/>}/>
+        <Route path="/clientLogIn" element={<ClientLogin/>}/>
+        <Route path="/createTheatre" element={<CreateTheatre/>}/>
+        <Route path="/bookTickets/selectTheatre" element={<ViewTheatre selectedTheatre={selectedTheatre} setSelectedTheatre={setSelectedTheatre}/>}/>
+      
+
+
+      </Routes>
+      
     </div>
   );
 }
