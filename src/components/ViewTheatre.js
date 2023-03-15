@@ -9,7 +9,7 @@ function ViewTheatre(setSelectedTheatre) {
     const renderTheatres = async () => {
       try {
         const res = await fetch(
-          "https://webcode-2-back-end.vercel.app/theatre",
+          "https://webcode-2-back-end.vercel.app/theatreView",
           {
             method: "GET",
           }
@@ -17,7 +17,7 @@ function ViewTheatre(setSelectedTheatre) {
         const response = await res.json();
 
         setTheatreData([].concat(...response));
-        console.log(theatreData);
+        console.log(response);
       } catch (error) {
         console.log(error);
       }
@@ -34,15 +34,17 @@ function ViewTheatre(setSelectedTheatre) {
 
   return (
     <Base>
+    <h1>Select -- theater</h1>
     <div>
       {theatreData.map((value, index) => {
         return (
           <button
+            style={{background:"skyblue",height:"200px"}}
             key={index}
             onClick={()=>selectAndNavigate(value._id)}
           >
-            <h1>{value.theatreName}</h1>
-            <h2><i>{value.movieName}</i></h2>
+            <h1>Theatre ::{value.theatreName}</h1>
+            <h2><i> MovieNow::{value.movieName}</i></h2>
             
           </button>
         );

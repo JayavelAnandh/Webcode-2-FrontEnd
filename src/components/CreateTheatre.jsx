@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Base from "./Base";
+import "./All.css"
 
 
 function CreateTheatre() {
@@ -10,6 +11,13 @@ function CreateTheatre() {
   const [seatsBooked, setSeatsBooked] = useState([]);
   const [pricePerTicket, setPricePerTicket] = useState("");
   const navigate = useNavigate()
+
+  useEffect(()=>{
+    if(!localStorage.getItem("x-auth-token-admin")){
+      alert("This page is Only Authorized for Admin ,.,Signup if you are a admin")
+      navigate("/")
+    }
+  })
 
   const handleSubmit = async (event) => {
     event.preventDefault();

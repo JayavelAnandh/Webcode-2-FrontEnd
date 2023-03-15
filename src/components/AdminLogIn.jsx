@@ -30,8 +30,8 @@ function AdminLogIn() {
       );
       const response = await res.json();
       setToken(response.token);
-      localStorage.setItem("x-auth-token",await response.token)
-      console.log("your Token has been found");
+      localStorage.setItem("x-auth-token-admin",await response.token)
+      alert("Welcome Admin!!!")
     } catch (error) {
       console.log(error);
     }
