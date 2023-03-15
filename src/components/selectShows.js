@@ -3,8 +3,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 function SelectShows(){
     const [shows,setShows] = useState([]);
-    const [seatsBooking,setSeatsBooking]=useState([])
-
+ 
     const navigate = useNavigate()
     useEffect(()=>{
         const showFinder = async(req,res)=>{
@@ -25,7 +24,8 @@ function SelectShows(){
         showFinder()
     },[])
     
-    const handleClick=()=>{
+    const handleClick=(data)=>{
+        localStorage.setItem("showData",data)
         navigate("/bookTickets/selectSeats");
 
     }
@@ -36,7 +36,7 @@ function SelectShows(){
                 shows.map((data,index)=>{
                         return(
                             
-                            <button key={index} onClick={()=>handleClick()}>{data.time}</button>
+                            <button key={index} onClick={()=>handleClick(data)}>{data.time}</button>
                         )
                 })
             }

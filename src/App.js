@@ -12,6 +12,7 @@ import BookingLogs from './components/BookingLogs';
 import DeleteTheater from './components/DeleteTheater';
 import Payment from './components/Payment';
 import SelectShows from './components/selectShows';
+import Base from './components/Base';
 
 function App() {
  
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-
+      
       <Routes>
         <Route path="/" element={<HomePage/>}/>
         <Route path="/adminLogin" element={<AdminLogIn/>}/>
@@ -32,10 +33,11 @@ function App() {
         <Route path="/deleteTheater" element={<DeleteTheater/>}/>
         <Route path="/payment" element={<Payment/>}/>
         <Route path="/bookTickets/selectShows" element={<SelectShows/>}/>
-
+      
 
 
       </Routes>
+      
       
     </div>
   );
