@@ -88,8 +88,8 @@ function ClientSignup() {
         <button type="submit">Submit</button>
       </form>
       <div>
-        <button onClick={() => navigate("/")}> Return to Homepage</button>
-        <button onClick={() => navigate("/clientLogIn")}> Already have a Account?</button>
+        <button onClick={() => navigate("/")} style={{background:"green"}}> Return to Homepage</button>
+        <button onClick={() => navigate("/clientLogIn")} style={{background:"gray "}}> Already have a Account?</button>
       </div>
     </Base>
   );

@@ -82,10 +82,10 @@ function CreateTheatre() {
         </div>
         {console.log(showTimings)}
 
-        <button type="submit">Submit</button>
+        <button type="submit" style={{background:"green"}}>Submit</button>
       </form>
       <br />
-      <button onClick={()=>navigate("/")}>Return to Homepage</button>
+      <button onClick={()=>navigate("/")} style={{background:"orange"}}>Return to Homepage</button>
     </Base>
   );
 }

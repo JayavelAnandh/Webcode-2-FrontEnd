@@ -99,7 +99,7 @@ function AdminLogIn() {
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" style={{background:"green"}}>Submit</button>
       </form>
       <div>
         <button onClick={() => navigate("/")}> Return to Homepage</button>

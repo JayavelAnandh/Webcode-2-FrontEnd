@@ -53,7 +53,7 @@ function DeleteTheater (){
                         theatreData && theatreData.map((data,index)=>{
                             return(
                                 
-                                    <div key={index} className="col-4"><h3>{data.theatreName}</h3><button onClick={()=>removeTheater(data._id)}>Delete</button></div>
+                                    <div key={index} className="col-4"><h3>{data.theatreName}</h3><button style={{ background:"Red"}} onClick={()=>removeTheater(data._id)}>Delete</button></div>
                                
                             )
                         })
