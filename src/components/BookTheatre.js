@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
+import Base from "./Base.js";
 
 function BookTheatre() {
   const showData = localStorage.getItem("showData")
@@ -86,7 +87,7 @@ function BookTheatre() {
   };
 
   return (
-    <>
+    <Base>
       <div className="container-md">
         <form
           //  onSubmit={(event) => {
@@ -148,7 +149,7 @@ function BookTheatre() {
           </button>
         </form>
       </div>
-    </>
+    </Base>
   );
 }
 export default BookTheatre;

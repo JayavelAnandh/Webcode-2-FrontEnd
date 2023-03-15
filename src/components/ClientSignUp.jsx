@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Base from "./Base";
 
 function ClientSignup() {
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ function ClientSignup() {
     }
   }
   return (
-    <>
+    <Base>
       <form onSubmit={handleSubmit}>
         <div className="input-group mb-3">
           <div className="input-group-prepend">
@@ -90,7 +91,7 @@ function ClientSignup() {
         <button onClick={() => navigate("/")}> Return to Homepage</button>
         <button onClick={() => navigate("/clientLogIn")}> Already have a Account?</button>
       </div>
-    </>
+    </Base>
   );
 }
 export default ClientSignup;

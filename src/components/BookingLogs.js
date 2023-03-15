@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../cssStyles/BookingLogs.css";
+import Base from "./Base.js";
 
 
 function BookingLogs() {
@@ -23,7 +24,7 @@ function BookingLogs() {
   },[])
   
   return (
-    <>
+    <Base>
       <div className="container-md">
         <div className="row">
           {logs && logs.map((data, index) => {
@@ -42,7 +43,7 @@ function BookingLogs() {
         </div>
       </div>
       <button onClick={()=>navigate("/")}>Return to HomePage</button>
-    </>
+    </Base>
   );
 }
 export default BookingLogs

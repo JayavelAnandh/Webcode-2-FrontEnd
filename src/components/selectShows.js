@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Navigate, useNavigate } from "react-router-dom";
+import Base from "./Base";
 
 function SelectShows(){
     const [shows,setShows] = useState([]);
@@ -31,6 +32,7 @@ function SelectShows(){
     }
     
     return(
+        <Base>
         <div>
             {
                 shows.map((data,index)=>{
@@ -41,6 +43,7 @@ function SelectShows(){
                 })
             }
         </div>
+        </Base>
     )
 }
 export default SelectShows

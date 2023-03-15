@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Base from "./Base";
 
 function AdminLogIn() {
   const navigate = useNavigate();
@@ -26,8 +27,9 @@ function AdminLogIn() {
           },
         }
       );
-      const responseToken = await res.json();
-      setToken(responseToken.token);
+      const response = await res.json();
+      setToken(response.token);
+      localStorage.setItem("x-auth-token",await response.token)
       console.log("your Token has been found");
     } catch (error) {
       console.log(error);
@@ -35,7 +37,7 @@ function AdminLogIn() {
   };
 
   return (
-    <>
+    <Base>
       <h3>Credentials:</h3>
       <ul>
         <li>
@@ -99,14 +101,9 @@ function AdminLogIn() {
         <button type="submit">Submit</button>
       </form>
       <div>
-        <h2>Here is Your Token:</h2>
-        <br />
-        {token}
-      </div>
-      <div>
         <button onClick={() => navigate("/")}> Return to Homepage</button>
       </div>
-    </>
+    </Base>
   );
 }
 export default AdminLogIn;

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Base from "./Base.js";
 
 function ViewTheatre(setSelectedTheatre) {
   const [theatreData, setTheatreData] = useState([]);
@@ -32,6 +33,7 @@ function ViewTheatre(setSelectedTheatre) {
   };
 
   return (
+    <Base>
     <div>
       {theatreData.map((value, index) => {
         return (
@@ -46,6 +48,8 @@ function ViewTheatre(setSelectedTheatre) {
         );
       })}
     </div>
+    </Base>
+    
   );
 }
 export default ViewTheatre;

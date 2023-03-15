@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Base from "./Base";
 
 
 function CreateTheatre() {
@@ -34,7 +35,7 @@ function CreateTheatre() {
     }
   };
   return (
-    <>
+    <Base>
       <form onSubmit={handleSubmit}>
         <div className="input-group mb-3">
           <div className="input-group-prepend">
@@ -85,7 +86,7 @@ function CreateTheatre() {
       </form>
       <br />
       <button onClick={()=>navigate("/")}>Return to Homepage</button>
-    </>
+    </Base>
   );
 }
 

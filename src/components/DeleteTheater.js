@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Base from "./Base";
 
 function DeleteTheater (){
 
@@ -45,7 +46,7 @@ function DeleteTheater (){
 
     
       return(
-        <>
+        <Base>
             <div className="container-md">
                 <div className="row">
                     {
@@ -59,7 +60,7 @@ function DeleteTheater (){
                     }
                 </div>
             </div>
-        </>
+        </Base>
       )
 }
 export default DeleteTheater;
