@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Base from "./Base";
+import "./All.css"
 
 function AdminLogIn() {
   const navigate = useNavigate();
