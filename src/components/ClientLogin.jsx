@@ -28,7 +28,8 @@ function ClientLogin() {
 
         const response = await res.json();
         alert(response.message)
-        setToken(response.token)
+        await response.token
+        localStorage.setItem("x-auth-token",await response.token)
         console.log("Your token has re-created")
     } catch (error) {
         console.log(error)
@@ -86,11 +87,6 @@ function ClientLogin() {
         </div>
         <button type="submit">Submit</button>
       </form>
-      <div>
-        <h2>Here is Your Recreated-Token:</h2>
-        <br />
-        {token}
-      </div>
       <div>
         <button onClick={() => navigate("/")}> Return to Homepage</button>
       </div>

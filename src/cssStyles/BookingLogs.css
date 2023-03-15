@@ -1,0 +1,14 @@
+.card{
+    background-color: bisque;
+    margin: 10px;
+    border: burlywood 2px solid;
+    border-radius: 18px;
+    box-shadow: 3px 3px 8px gray;
+}
+.card-title{
+    font-size:30px;
+}
+.card-subtitle{
+    color: rgb(54, 44, 44);
+    font-size: 20px;
+}

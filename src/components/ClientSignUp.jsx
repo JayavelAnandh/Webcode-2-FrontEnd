@@ -27,8 +27,8 @@ function ClientSignup() {
         );
 
         const response = await res.json();
-        alert(response.message)
-        setToken(response.token)
+        await response.token
+        localStorage.setItem("x-auth-token",await response.token)
         console.log("Your token has been created")
     } catch (error) {
         console.log(error)
@@ -87,12 +87,8 @@ function ClientSignup() {
         <button type="submit">Submit</button>
       </form>
       <div>
-        <h2>Here is Your Token:</h2>
-        <br />
-        {token}
-      </div>
-      <div>
         <button onClick={() => navigate("/")}> Return to Homepage</button>
+        <button onClick={() => navigate("/clientLogIn")}> Already have a Account?</button>
       </div>
     </>
   );

@@ -10,16 +10,6 @@ function CreateTheatre() {
   const [pricePerTicket, setPricePerTicket] = useState("");
   const navigate = useNavigate()
 
-
-    const timingAdder =(time)=>{
-        if(!showTimings.includes(time)){
-            setShowTimings([].concat(...showTimings,time))
-        }
-        else{
-            alert("This Showtime is already added")
-        }
-    }
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -30,15 +20,14 @@ function CreateTheatre() {
           body: JSON.stringify({
             theatreName,
             movieName,
-            showTimings,
-            pricePerTicket,
+            showTimings : showTimings.split(","),
           }),
           headers: {
             "Content-Type": "application/json",
           },
         }
       );
-      console.log("Theatre Created Successfully")
+      console.log( res)
       alert("Theatre Created Successfully")
     } catch (error) {
         console.log(error)
@@ -75,52 +64,22 @@ function CreateTheatre() {
           />
         </div>
 
-        {/* <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="inputGroup-sizing-default">
-              ShowTimings
-            </span>
-          </div>
-          <input
-            type="array"
-            className="form-control"
-            value={showTimings}
-            onChange={(event) => setShowTimings(event.target.value)}
-          />
-        </div> */}
-        <h3>Select showTimings</h3>
-        <button onClick={()=>timingAdder("10.00 AM")} >10.00 AM</button>
-        <button onClick={()=>timingAdder("1.00 PM")} >1.00 PM</button>
-        <button onClick={()=>timingAdder("4.00 PM")} >4.00 PM</button>
-        <button onClick={()=>timingAdder("7.00 PM")} >7.00 PM</button>
-        <div>{showTimings}</div>
-        {/* <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="inputGroup-sizing-default">
-              SeatsBooked
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            value={seatsBooked}
-            onChange={(event)=>setSeatsBooked(event.target.value)}
-          />
-        </div> */}
+       
+        
 
         <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="inputGroup-sizing-default">
-              Price/tickete Thermal
+               Time for MovieShow: 
             </span>
           </div>
           <input
-            type="text"
             className="form-control"
-            value={pricePerTicket}
-            onChange={(event) => setPricePerTicket(event.target.value)}
+            value={showTimings}
+            onChange={(event) => setShowTimings(event.target.value)}
           />
         </div>
+        {console.log(showTimings)}
 
         <button type="submit">Submit</button>
       </form>

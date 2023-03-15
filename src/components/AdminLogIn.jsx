@@ -45,7 +45,7 @@ function AdminLogIn() {
           <u>email:</u>Admin123@gmail.com
         </li>
         <li>
-          <u>password:</u>dminAdmin
+          <u>password:</u>AdminAdmin
         </li>
       </ul>
       <form onSubmit={handleSubmit}>
