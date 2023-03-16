@@ -96,6 +96,7 @@ function BookTheatre(props) {
         method:"PUT",
         headers:{
           "Content-Type": "application/json",
+          
         },
         body:{
           seatsBooked:["12","13"]
