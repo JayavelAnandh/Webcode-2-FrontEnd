@@ -16,7 +16,7 @@ import Base from './components/Base';
 
 function App() {
  
- 
+  const [showData,setShowData]= useState()
 
   return (
     <div className="App">
@@ -28,11 +28,11 @@ function App() {
         <Route path="/clientLogIn" element={<ClientLogin/>}/>
         <Route path="/createTheatre" element={<CreateTheatre/>}/>
         <Route path="/bookTickets/selectTheatre" element={<ViewTheatre/>}/>
-        <Route path="/bookTickets/selectSeats" element={<BookTheatre/>}/>
+        <Route path="/bookTickets/selectSeats" element={<BookTheatre showData={showData} setShowData={setShowData}  />}/>
         <Route path="/bookingLogs" element={<BookingLogs/>}/>
         <Route path="/deleteTheater" element={<DeleteTheater/>}/>
         <Route path="/payment" element={<Payment/>}/>
-        <Route path="/bookTickets/selectShows" element={<SelectShows/>}/>
+        <Route path="/bookTickets/selectShows" element={<SelectShows showData={showData} setShowData={setShowData}/>}/>
       
 
 

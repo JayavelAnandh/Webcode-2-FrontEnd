@@ -3,12 +3,13 @@ import { useNavigate } from "react-router-dom";
 import "../App.css";
 import Base from "./Base.js";
 
-function BookTheatre() {
-  const showData = localStorage.getItem("showData")
-  console.log("showData",showData)
+function BookTheatre(props) {
+  // const showDataNow = localStorage.getItem("showData")
+  console.log(props.showData.seatsBooked)
+  const choosenShowSeats = props.showData.seatsBooked
   const [selectedShowTime, setSelectedShowTime] = useState();
   const navigate = useNavigate();
-  const [seatsBooked,setSeatsBooked] =useState(showData.seatsBooked);
+  const [seatsBookedClient,setSeatsBookedClient] =useState(choosenShowSeats)
   
 //   let seatsBooking = [];
   useEffect(() => {
@@ -30,7 +31,7 @@ function BookTheatre() {
         
     //     const response = await res.json();
     //     await setSelectedTheatreData(response);
-    //     setSeatsBooked(response.seatsBooked);
+    //     setSeatsBookedClient(response.seatsBooked);
     //     console.log(response);
     //   } catch (error) {
     //     console.log(error);
@@ -78,21 +79,43 @@ function BookTheatre() {
   ];
 
   const handleOnSelect = (value) => {
-    if (!seatsBooked.includes(value)) {
-      setSeatsBooked([].concat(...seatsBooked,value))
-      console.log(seatsBooked);
+    if (!seatsBookedClient.includes(value)) {
+      setSeatsBookedClient([].concat(...seatsBookedClient,value))
+      console.log("seats",seatsBookedClient);
     } else {
       alert("You already selected this seat");
     }
   };
+  const handleSubmit=async(event)=>{
+    try {
+      event.preventDefault()
+      let response = await fetch (
+        "https://webcode-2-back-end.vercel.app/shows/upt?_id=641158de2feda0209d8d00b3",
+        // `https://webcode-2-back-end.vercel.app/shows/update?_id=${props.showData._id}`,
+       {
+        method:"PUT",
+        headers:{
+          "Content-Type": "application/json",
+        },
+        body:{
+          seatsBooked:["12","13"]
+        }
+       }
+      )
+      alert("Booked Successfully")
+    } catch (error) {
+       console.log(error)
+    }
+    
 
+  }
   return (
     <Base>
       <div className="container-md">
-        <form
-          //  onSubmit={(event) => {
-          //    bookTickets(event);
-          // }}
+        <form onSubmit={(event)=>{
+          handleSubmit(event);
+        }}
+
         >
           {/* {selectedTheatreData &&
             selectedTheatreData.showTimings.map((value, index) => {
@@ -126,7 +149,7 @@ function BookTheatre() {
                           key={currentSeat}
                         >
                           <button
-                            // disabled={seatsBooked.includes(currentSeat)}
+                            disabled={seatsBookedClient.includes(currentSeat)}
                             className="col-md-2"
                             value={currentSeat}
                             onClick={(event) => {
