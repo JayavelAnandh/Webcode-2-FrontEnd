@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Base from "./Base";
-import "./All.css"
+import "./All.css";
 
 function AdminLogIn() {
   const navigate = useNavigate();
@@ -30,8 +30,8 @@ function AdminLogIn() {
       );
       const response = await res.json();
       setToken(response.token);
-      localStorage.setItem("x-auth-token-admin",await response.token)
-      alert("Welcome Admin!!!")
+      localStorage.setItem("x-auth-token-admin", await response.token);
+      alert("Welcome Admin!!!");
     } catch (error) {
       console.log(error);
     }
@@ -99,7 +99,9 @@ function AdminLogIn() {
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>
-        <button type="submit" style={{background:"green"}}>Submit</button>
+        <button type="submit" style={{ background: "green" }}>
+          Submit
+        </button>
       </form>
       <div>
         <button onClick={() => navigate("/")}> Return to Homepage</button>
